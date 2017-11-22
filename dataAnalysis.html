@@ -24,6 +24,11 @@
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
+	<!-- JQuery -->
+	<script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -64,9 +69,8 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">Default</a></li>
-            <li><a href="../navbar-static-top/">注册/登录</a></li>
-            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">欢迎信息</a></li>
+            <li><a href="#">注册/登录</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -77,10 +81,72 @@
 			<div class="row page-header">
 				<strong class="text-left">数据分析</strong>
 			</div><!-- row -->
+					
+			<div class="row">
+				<div class="col-md-3 col-lg-3">
+					<strong>数据源</strong>
+					<ul class="list-group" style="border: 1px solid rgb(204, 204, 204); overflow-y: scroll; height: 335px;">
+						<li id="file1" class="list-group-item">2017年7月用户数据.excel</li>
+						<li id="file2" class="list-group-item">2017年8月用户数据.excel</li>
+					</ul>
+				</div><!-- col-md-3 -->
+				<div class="col-md-3 col-lg-3" id="col">
+					<strong>训练表</strong>
+					<button type="button" class="glyphicon glyphicon-trash" aria-hidden="true" style="float:right"></button>
+					<ul class="list-group" id="fileColumns" style="border: 1px solid rgb(204, 204, 204); overflow-y: scroll; height: 335px;">
+						<li class="list-group-item"></li>
+						<li class="list-group-item"></li>
+					</ul>	
+				</div><!-- col-md-2 -->
+				<div class="col-md-6 col-lg-6">
+					<strong>X轴</strong>
+					<button type="button" class="glyphicon glyphicon-trash" aria-hidden="true" style="float:right"></button>
+					<ul class="list-group" style="border: 1px solid rgb(204, 204, 204); overflow-y: scroll;height: 150px;">
+					</ul>
+					<strong>Y轴</strong>
+					<button type="button" class="glyphicon glyphicon-trash" aria-hidden="true" style="float:right"></button>
+					<ul class="list-group" style="border: 1px solid rgb(204, 204, 204); overflow-y: scroll;height: 150px;">
+					</ul>
+				</div><!-- col-md-4 -->
+			</div><!-- row -->
+			
+			<div class="row" style="border: 1px solid rgb(204, 204, 204); overflow-y: scroll;overflow-x: scroll;height: 150px;">
+				<table class="table table-hover text-center">
+					<thead>
+						<tr class="info">
+							<th class="text-center">序号</th>
+							<th class="text-center">列名1</th>
+						</tr>
+					</thead>
+				<tbody>
+						<tr class="active">
+							<td>1</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>test2</td>
+						</tr>
+				</tbody>
+				</table>
+			</div>
 		</div><!-- jumbotron -->
 	</div><!-- container-fluid -->
 
+	<script>
+		$("#file1").draggable({ helper: "clone" });
+		$("#file2").draggable({ helper: "clone" });
+		$("#fileColumns").droppable({
+			drop: function() {
+				alert("拖放成功");
+			}
+		});
+	</script>
 
+	
+	
+	
+	
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
